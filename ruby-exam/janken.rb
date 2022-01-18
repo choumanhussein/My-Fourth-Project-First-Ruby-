@@ -46,6 +46,10 @@ class Janken
       # "Aiko" is output.
       puts "It' a tie !"
       return false
+      player = Player.new
+      enemy = Enemy.new
+      janken = Janken.new
+      janken.pon(player.hand, enemy.hand)
       # Returns "true" to run rock-paper-scissors repeatedly.
       # Tip: You can use "return" to return a return value. However, in Ruby, it is common to omit the "return" when returning a return value.
     elsif (player_hand == 0 && enemy_hand == 1) || (player_hand == 1 && enemy_hand == 2) || (player_hand == 2 && enemy_hand == 0)
