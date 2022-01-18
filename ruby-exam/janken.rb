@@ -7,7 +7,7 @@ class Player
   #  if (input_hand != 0 )|| (input_hand !=1 )|| (input_hand!=2)
     while true
       puts "Please enter a number."
-      puts "0: Rock, 1: Scissors, 2: Paperss"
+      puts "0: Rock, 1: Scissors, 2: Papers"
       # Assign the player's input value to the variable 'input_hand'.
       #  Hint: look into the gets method.
       input_hand=gets.chomp
@@ -46,10 +46,6 @@ class Janken
       # "Aiko" is output.
       puts "It' a tie !"
       return false
-        #player = Player.new
-        #enemy = Enemy.new
-        #janken = Janken.new
-        #janken.pon(player.hand, enemy.hand)
       # Returns "true" to run rock-paper-scissors repeatedly.
       # Tip: You can use "return" to return a return value. However, in Ruby, it is common to omit the "return" when returning a return value.
     elsif (player_hand == 0 && enemy_hand == 1) || (player_hand == 1 && enemy_hand == 2) || (player_hand == 2 && enemy_hand == 0)
@@ -76,24 +72,11 @@ class GameStart
 
     # Let's assign "true" to the variable "next_game".
     # If "next_game" is "false", the iteration process is terminated; if it is "true", the iteration process is continued.
-    puts "Do you Want to replay (Y/N) ?"
-    answer=gets.chomp
-    system ('clear')
-      while (answer == "Y")
+      while true
        #Substitute the value (return value) returned by executing rock-paper-scissors into the variable "next_game".
       #janken.pon(player.hand, enemy.hand)」We are running rock-paper-scissors in
     next_game = janken.pon(player.hand, enemy.hand)
-    puts "Do you Want to replay (Y/N)?"
-    answer=gets.chomp
-    system ('clear')
   end
-  puts "existing Game"
-  for i in -1..190000 do
-    print "...\r"
-    STDOUT.flush
-  end
-  sleep(3)
-  print "\n"
 end
 end
 GameStart.jankenpon
