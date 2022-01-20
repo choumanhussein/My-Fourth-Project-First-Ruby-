@@ -7,7 +7,7 @@ class Player
   #  if (input_hand != 0 )|| (input_hand !=1 )|| (input_hand!=2)
     while true
       puts "Please enter a number."
-      puts "0: Rock, 1: Scissors, 2: Papers"
+      puts "0: Rock, 1: Scissors, 2: Paperss"
       # Assign the player's input value to the variable 'input_hand'.
       #  Hint: look into the gets method.
       input_hand=gets.chomp
@@ -33,7 +33,12 @@ class Enemy
 end
 # Write a logic to make the player (you) input "0~2" and the enemy randomly generate "0~2" and play rock-paper-scissors and output the result on the console.
 class Janken
+
   def pon(player_hand, enemy_hand)
+    player = Player.new
+        enemy = Enemy.new
+        janken = Janken.new
+        #janken.pon(player.hand, enemy.hand)
     # Substitute ["goo", "choki", "par"] for the variable "janken".
     janken = ["Rock", "Scissors", "Paper"]
     #"Your opponent's move is #{opponent's move}" The output is
@@ -43,22 +48,59 @@ class Janken
      #puts enemy_hand.to_i
      #puts player_hand.to_i
      if player_hand == enemy_hand
+       player = Player.new
+           enemy = Enemy.new
+           janken = Janken.new
       # "Aiko" is output.
       puts "It' a tie !"
-      return false
-      player = Player.new
-      enemy = Enemy.new
-      janken = Janken.new
-      janken.pon(player.hand, enemy.hand)
+      while true
+      #Substitute the value (return value) returned by executing rock-paper-scissors into the variable "next_game".
+     #janken.pon(player.hand, enemy.hand)」We are running rock-paper-scissors in
+   next_game = janken.pon(player.hand, enemy.hand)
+ end
+      #return false
       # Returns "true" to run rock-paper-scissors repeatedly.
       # Tip: You can use "return" to return a return value. However, in Ruby, it is common to omit the "return" when returning a return value.
     elsif (player_hand == 0 && enemy_hand == 1) || (player_hand == 1 && enemy_hand == 2) || (player_hand == 2 && enemy_hand == 0)
-
+      player = Player.new
+      enemy = Enemy.new
+      janken = Janken.new
+          while true
       puts "You have won."
-       return false #to terminate the rock-paper-scissors game.
+      #Substitute the value (return value) returned by executing rock-paper-scissors into the variable "next_game".
+     #janken.pon(player.hand, enemy.hand)」We are running rock-paper-scissors in
+   next_game = janken.pon(player.hand, enemy.hand)
+return false
+   #return false #to terminate the rock-paper-scissors game.
+end
     else
-      puts "You have lost."
-       return false #to terminate the rock-paper-scissors game.
+          player = Player.new
+          enemy = Enemy.new
+          janken = Janken.new
+      puts "You have lost !"
+      puts "Do you Want to replay (Y/N) ?"
+        answer=gets.chomp
+      if answer == "N"
+        puts "existing game"
+        exit(true)
+        return false
+        sleep(3)
+        print "\n"
+      end
+      if (answer == "Y")
+       #Substitute the value (return value) returned by executing rock-paper-scissors into the variable "next_game".
+      #janken.pon(player.hand, enemy.hand)」We are running rock-paper-scissors in
+      next_game = janken.pon(player.hand, enemy.hand)
+    else
+      while (answer != "Y" && answer !="N")
+      puts "Syntax Error"
+      puts "Do you Want to replay (Y/N) ?"
+      answer=gets.chomp
+          janken = Janken.new
+          next_game = janken.pon(player.hand, enemy.hand)
+          return false
+        end
+      end
   end
 end
 end
@@ -76,12 +118,6 @@ class GameStart
 
     # Let's assign "true" to the variable "next_game".
     # If "next_game" is "false", the iteration process is terminated; if it is "true", the iteration process is continued.
-      while true
-       #Substitute the value (return value) returned by executing rock-paper-scissors into the variable "next_game".
-      #janken.pon(player.hand, enemy.hand)」We are running rock-paper-scissors in
-    next_game = janken.pon(player.hand, enemy.hand)
-  end
 end
 end
 GameStart.jankenpon
-# Call the jankenpon method with the class name.
